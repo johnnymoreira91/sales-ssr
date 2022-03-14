@@ -5,6 +5,7 @@ import makeStyles from '@styles/styled/useStyle'
 import useSwr from 'swr'
 import Menu from '@components/menu'
 import TableUser from '@components/tableUser'
+import TableProducts from '@components/tableProducts'
 
 // @ts-ignore
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -30,16 +31,16 @@ const Home: NextPage = () => {
         <Paper sx={{ height: 100, p: 2, width: '100%', background: '#1a868e' }}
           className={classes.card}
         >
-          <Typography color="white" variant="subtitle1">Total de máquinas</Typography>
-          <Typography color="white" variant="subtitle2" fontSize={24}>10</Typography>
+          <Typography color="white" variant="subtitle1">Total de Funcionarios</Typography>
+          <Typography color="white" variant="subtitle2" fontSize={24}>{data?.func}</Typography>
         </Paper>
       </Grid>
       <Grid item xs={3}>
         <Paper sx={{ height: 100, p: 2, width: '100%', background: '#1a868e' }}
           className={classes.card}
         >
-          <Typography color="white" variant="subtitle1">Total de máquinas</Typography>
-          <Typography color="white" variant="subtitle2" fontSize={24}>10</Typography>
+          <Typography color="white" variant="subtitle1">Total de Produtos</Typography>
+          <Typography color="white" variant="subtitle2" fontSize={24}>{data?.productSize}</Typography>
         </Paper>
       </Grid>
       <Grid item xs={3}>
@@ -56,11 +57,16 @@ const Home: NextPage = () => {
         </Paper>
       </Grid>
       <Grid item xs={3}>
-        <Paper sx={{ height: 520, p: 2, width: '100%' }} className={classes.paper}>1</Paper>
+        <Paper sx={{ height: 430, p: 2, width: '100%' }} className={classes.paper}>1</Paper>
       </Grid>
       <Grid item xs={9}>
-        <Paper sx={{ height: 520, p: 2, width: '100%' }} className={classes.paper}>
+        <Paper sx={{ height: 430, p: 2, width: '100%' }} className={classes.paper}>
           <TableUser />
+        </Paper>
+      </Grid>
+      <Grid item xs={12}>
+        <Paper sx={{ height: 430, p: 2, width: '100%' }} className={classes.paper}>
+          <TableProducts />
         </Paper>
       </Grid>
       <Grid item xs={12}>
