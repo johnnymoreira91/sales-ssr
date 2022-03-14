@@ -7,8 +7,8 @@ export default async function handler(
   res: NextApiResponse<any>
 ) {
   try {
-    let User = await prisma.user.findMany()
-    res.status(200).json(User)
+    let users = await prisma.user.findMany()
+    res.status(200).json({users, tamanho: users.length})
   } catch (error) {
     console.log(error)
     return res.status(400).json({messageError: 'Error to list users'})
